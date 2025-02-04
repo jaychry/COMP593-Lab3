@@ -11,8 +11,16 @@ def main():
 # Get path of sales data CSV file from the command line
 def get_sales_csv():
     # Check whether command line parameter provided
+    if len(sys.argv) < 2:
+        print("Error: No sales data CSV file provided")
+        sys.exit(1)
+    return sales_csv = sys.argv[1]
     # Check whether provide parameter is valid path of file
-    return
+    if not os.path.isfile(sales_csv):
+        print(f"Error: The file '{sales_csv}' does not exist.")
+        sys.exit(1)
+
+    return sales_csv
 
 # Create the directory to hold the individual order Excel sheets
 def create_orders_dir(sales_csv):
