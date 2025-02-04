@@ -1,10 +1,10 @@
 import os
 import sys
 import pandas as pd
-df = pd.read_csv('sales_data.csv')
+from datetime import datetime
 
 def main():
-    sales_csv = get_sales_csv()
+    sales_csv = r"C:\Users\jaych\Documents\git-repo\COMP593-Lab3\sales_data (1).csv"
     orders_dir = create_orders_dir(sales_csv)
     process_sales_data(sales_csv, orders_dir)
 
@@ -14,7 +14,7 @@ def get_sales_csv():
     if len(sys.argv) < 2:
         print("Error: No sales data CSV file provided")
         sys.exit(1)
-    return sales_csv = sys.argv[1]
+    sales_csv = sys.argv[1]
     # Check whether provide parameter is valid path of file
     if not os.path.isfile(sales_csv):
         print(f"Error: The file '{sales_csv}' does not exist.")
