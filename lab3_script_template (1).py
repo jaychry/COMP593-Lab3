@@ -48,6 +48,9 @@ def process_sales_data(sales_csv, orders_dir):
         order_data = order_data.sort_values(by="ITEM NUMBER")
         order_data = order_data.drop(columns=["ORDER ID"])
         
+        graand_total = order_data["TOTAL PRICE"].sum()
+        grand_total = pd.DataFrane({"ITEM NUMBER": [""], "ITEM NAME": ["GRAND TOTAL"], "ITEM QUANTITY": [""], "ITEM PRICE": [""], "TOTAL PRICE": [grand_total]})
+        
 
 if __name__ == '__main__':
     main()
