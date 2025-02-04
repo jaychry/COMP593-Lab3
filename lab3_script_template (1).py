@@ -53,5 +53,12 @@ def process_sales_data(sales_csv, orders_dir):
 
         order_data = pd.concat([order_data, grand_total_row], ignore_index=True)
 
+        order_file = os.path.join(orders_dir, f"Order_{order_id}.xlsx")
+        with pd.ExcelWriter(order_file, engine='xlswriter') as writer:
+            order_data.to_excel(writer, sheet_name='Order Details', index=False)
+            workbook = writer.book
+            worksheet = writer.sheets['Order Details']
+            
+
 if __name__ == '__main__':
     main()
