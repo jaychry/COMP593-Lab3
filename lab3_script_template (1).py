@@ -58,7 +58,14 @@ def process_sales_data(sales_csv, orders_dir):
             order_data.to_excel(writer, sheet_name='Order Details', index=False)
             workbook = writer.book
             worksheet = writer.sheets['Order Details']
-            
+
+            money_format = workbook.add_format({'num_format': '$#, ##0.00'})
+            worksheet.set_column('E:E', None, money_format)
+            worksheet.set_column('A:A', 10)
+            worksheet.set_column('B:B', 20)
+            worksheet.set_column('C:C', 15)
+            worksheet.set_column('D:D', 15)
+            worksheet.set_column('E:E', 15)
 
 if __name__ == '__main__':
     main()
